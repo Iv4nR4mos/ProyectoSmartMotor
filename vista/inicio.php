@@ -1,8 +1,12 @@
 <?php 
-
 session_start();
 
 $usuario = $_SESSION['usuario'];
+
+if (is_null($usuario)) {
+	session_destroy();
+	header('Location: index.php');
+}
 
 include('../controladores/conexion.php');
 

@@ -7,8 +7,18 @@ $pass_nueva = $_REQUEST['passNueva'];
 
 include('../controladores/conexion.php');
 
-$sql = "UPDATE cliente SET password = '". $pass_nueva . "' WHERE password = '". $pass_actual . "'";
+$sql = "UPDATE clientes SET password = '". $pass_nueva . "' WHERE usuario = '" . $usuario ."' AND password = '" . $pass_actual . "'";
 $result = $conn->query($sql);
 
-header('Location ../vista');
+$script =  "<script type='text/javascript'>
+				alert('Contraseña Incorrecta');
+			</script>";
+
+if (!$result) {
+	header('Location: ../vista/configuracion.php');
+	echo $script;
+}else{
+	header('Location: ../vista');
+}
+
  ?>

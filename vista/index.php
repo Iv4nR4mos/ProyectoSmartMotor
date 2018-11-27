@@ -82,13 +82,14 @@
 						type: "POST",
 						url: "validar.php",
 						data: "nnombre=" + usuario + "&npassword=" + pass,
-						success: function(msg) {
-							//$("#alert").html(msg);
+						success: function() {
+							/*$("#alert").html(msg);
 							document.getElementById("nnombre").value="";
                    			document.getElementById("npassword").value="";
                    			setTimeout(function() {
                    				$("#alert").fadeOut('slow');
-                   			}, 500);
+                   			}, 500);*/
+                   			location.href = "inicio.php";
 						}
 					});
 				}

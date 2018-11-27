@@ -18,25 +18,29 @@ try{
 
 	if($result->num_rows > 0){
 		foreach ($result as $row) {
-			if($row['password'] = $password){
-				session_start();
-
-				$_SESSION['usuario'] = $usuario;
-
-				header("Location: inicio.php");
-			} else {
-				session_destroy();
-				echo 	"<div class='alert alert-danger' role='alert'>
-							Usuario o Contraseña Incorrecta
-						</div>";
-				header("Location: index.php");
-			}
+			$pass = $row['password'];
 		}
+			
+		if(strcmp($pass, $password) == 0){
+			session_start();
+
+			$_SESSION['usuario'] = $usuario;
+
+			header("Location: inicio.php");
+		} else {
+			session_destroy();
+			echo 	"<div class='alert alert-danger' role='alert'>
+						Usuario o Contraseña Incorrecta
+					</div>";
+			header("Location: index.php");
+		}
+		
 	} else {
 		session_destroy();
-		echo "Otro error";
+		echo 	"<div class='alert alert-danger' role='alert'>
+						Usuario o Contraseña Incorrecta
+					</div>";
 		header("Location: index.php");
-		exit();
 	}
 } catch(Exception $e){
 	throw $e;	

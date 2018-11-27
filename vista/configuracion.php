@@ -114,11 +114,11 @@ $correoActual = $cliente->mostrarCorreo($conn,$usuario);
 
 	<!-- Cambiar Correo -->
 	<div class="container" id="form-correo" style="width: 50%;">
-		<form>
+		<form action="../controladores/actualizarcorreo.php">
 			<div class="form-group">
 				<label for="correoCliente">Correo</label>
 				<div class="input-group-text">
-					<input type="email" class="form-control" id="correoCliente" name="correo" placeholder="<?php echo $correoActual; ?>">
+					<input type="email" class="form-control" id="correoCliente" name="correoCliente" placeholder="<?php echo $correoActual; ?>">
 				</div>
 			</div>
 			<button class="btn btn-amarillo">Cambiar Correo</button>

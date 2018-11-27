@@ -13,37 +13,6 @@ function convFecha($fecha){
 	echo $date;
 }
 
-function todosLosDatos($con,$equipo){
-	try {
-		$sql = "SELECT temp, amp, volt, hr FROM registros WHERE equipo = '" . $equipo. "' ORDER BY hr DESC";
-		$result = $con->query($sql);
-
-		$return = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-		return $return;
-	} catch (Exception $e){
-		throw $e;
-	}
-
-}
-
-function buscarPorFecha($con, $equipo, $desde, $hasta){
-	try{
-		$sql = "SELECT temp, amp, volt, hr FROM registros
-				WHERE equipo = '" . $equipo . "'
-				AND hr BETWEEN '" . $desde . "' AND '" . $hasta . "' ORDER BY hr DESC";
-
-		$result = $con->query($sql);
-
-		$return = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-		return $return;
-
-		}catch(Exception $e){
-			throw $e;
-		}
-}
-
 ?>
 
 <!DOCTYPE html>
